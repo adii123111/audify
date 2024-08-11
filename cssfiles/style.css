@@ -1,0 +1,266 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+:root {
+  --a: 0;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+body {
+  background-color: black;
+  color: white;
+}
+.left {
+  width: 25vw;
+  padding: 10px;
+}
+.right {
+  width: 75vw;
+  margin: 16px 0;
+  margin-right: 16px;
+  position: relative;
+}
+
+.home ul li {
+  width: 15px;
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  font-weight: bold;
+  padding-top: 14px;
+}
+.heading {
+  width: 100%;
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  font-weight: bold;
+  padding-top: 14px;
+  padding: 23px 14px;
+  font-size: 13px;
+}
+.heading img {
+  width: 30px;
+}
+
+.library {
+  min-height: 80vh;
+  position: relative;
+}
+
+.footer {
+  display: flex;
+  font-size: 10px;
+  color: grey;
+  gap: 13px;
+  position: absolute;
+  bottom: 0;
+  padding-top: 15px;
+  padding-bottom: 35px;
+
+  flex-wrap: wrap;
+}
+
+.footer a {
+  color: grey;
+  text-decoration: none;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(34, 34, 34);
+}
+.header > * {
+  padding: 16px;
+}
+.spotifyPlaylist {
+  padding: 16px;
+}
+.spotifyPlaylists h1 {
+  padding: 16px;
+}
+
+.card-Container {
+  margin: 20px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+
+  overflow-y: auto;
+  max-height: 69vh;
+}
+.card {
+  width: 200px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #252525;
+  position: relative;
+  transition: all 0.7s;
+  font-size: 15px;
+}
+.card:hover {
+  background-color: black;
+  opacity: 1;
+  cursor: pointer;
+  --a: 1;
+}
+.card > * {
+  padding-top: 10px;
+}
+.card img {
+  width: 100%;
+  object-fit: contain;
+}
+.play {
+  position: absolute;
+  top: 170px;
+  right: 17px;
+  opacity: var(--a);
+  transition: all 1s ease-out;
+}
+
+.buttons > * {
+  margin: 0 12px;
+}
+.signupbtn {
+  font-weight: bold;
+  background-color: transparent;
+  color: gainsboro;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.signupbtn:hover {
+  font-size: 14px;
+  color: white;
+}
+.loginbtn {
+  color: black;
+  background-color: white;
+  font-weight: bold;
+  border-radius: 22px;
+  padding: 10px;
+  width: 80px;
+  cursor: pointer;
+}
+.loginbtn:hover {
+  font-weight: bold;
+  font-size: 14px;
+}
+.playbar {
+  position: fixed;
+  bottom: 5px;
+  padding: 10px;
+  filter: invert(1);
+  background: #dad5d5;
+  border-radius: 13px;
+  width: 70.5vw;
+  min-height: 39px;
+
+  height: 50px;
+}
+.songbuttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+.songlist ul {
+  padding: 0 12px;
+}
+.songlist {
+  height: 420px;
+  overflow-y: scroll;
+  margin-bottom: 44px;
+}
+.songlist ul li {
+  list-style-type: decimal;
+  display: flex;
+  gap: 12px;
+  cursor: pointer;
+  padding: 13px;
+  margin: 12px 0;
+  border-radius: 5px;
+  border: 1px solid white;
+}
+.songlist .info {
+  font-size: 14px;
+  width: 344px;
+}
+.info div {
+  word-break: break-all;
+}
+.playnow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.playnow span {
+  font-size: 15px;
+  width: 64px;
+  padding: 12px;
+}
+.seekbar {
+  height: 1.5px;
+  width: 97%;
+  border-radius: 10px;
+  border: 1px solid black;
+  position: absolute;
+  cursor: pointer;
+  bottom: 3px;
+  background: black;
+  margin: 7px;
+  transition: left 0.5s;
+}
+.circle {
+  width: 17px;
+  height: 17px;
+  border-radius: 13px;
+  background-color: black;
+  position: relative;
+  bottom: 8px;
+  left: 0%;
+}
+.songbuttons img {
+  cursor: pointer;
+}
+.songinfo,
+.songtime {
+  color: black;
+  padding: 0 12px;
+  width: 250px;
+}
+.songtime {
+  color: black;
+  padding: 0 12px;
+  width: 100px;
+}
+.abovebar {
+  display: flex;
+  justify-content: space-between;
+  /* margin: 12px 0; */
+}
+.hamburger {
+  display: none;
+}
+.close {
+  display: none;
+}
+
+.volume:hover::after {
+  cursor: pointer;
+}
+.volume {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+
+}
+.timevol {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}

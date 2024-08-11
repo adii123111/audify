@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Audify</title>
+    <link rel="stylesheet" href="cssfiles/style.css" />
+    <link rel="stylesheet" href="cssfiles/utility.css" />
+    <link  rel="icon" type="image/x-icon" href="img/icon.png">
+
+    <link
+      rel="stylesheet"
+      media="screen and (max-width: 1200px)"
+      href="cssfiles/responsive.css"
+    />
+  </head>
+  <body>
+    <div class="container flex bg-black">
+      <div class="left">
+        <div class="invert close">
+          <img src="allsvg/close.svg" alt="" />
+        </div>
+        <div class="home bg-grey rounded m1 p1">
+          <div class="logo">
+            <!-- <img
+              width="120px"
+              class="invert"
+              src="allsvg/logo.svg"
+              alt="logo"
+            /> -->
+            <img width="150px" src="img/spotifylogo.png" alt="">
+          </div>
+          <ul>
+            <li><img class="invert" src="allsvg/home.svg" alt="home" />Home</li>
+            <li>
+              <img class="invert" src="allsvg/search.svg" alt="search" />Search
+            </li>
+          </ul>
+        </div>
+        <div class="library m1 p1 rounded bg-grey">
+          <div class="heading">
+            <img class="invert" src="allsvg/playist2.svg" alt="#" />
+            <h2>Your library</h2>
+
+            <div class="footer">
+              <div>
+                <a href="#"
+                  ><span>Legal</span></a
+                >
+              </div>
+              <div>
+                <a href="#"
+                  ><span>Privacy Center</span></a
+                >
+              </div>
+              <div>
+                <a href="#"
+                  ><span>Privacy Policy</span></a
+                >
+              </div>
+              <div>
+                <a href="#"
+                  ><span>Cookies</span></a
+                >
+              </div>
+              <div>
+                <a href="#"
+                  ><span>About Ads</span></a
+                >
+              </div>
+              <div>
+                <a href="#"
+                  ><span>Accessibility</span></a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="songlist">
+            <ul></ul>
+          </div>
+        </div>
+      </div>
+      <div class="right rounded bg-grey">
+        <div class="header">
+          <div class="nav">
+            <div style="padding-top: 5px" class="hamburgercontainer">
+              <img
+                style="padding-left: 5px"
+                width="30px"
+                class="hamburger invert"
+                src="allsvg/hamburger.svg"
+                alt=""
+              />
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="backbtn"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                color="#fffff"
+                fill="none"
+              >
+                <path
+                  d="M15 6C15 6 9.00001 10.4189 9 12C8.99999 13.5812 15 18 15 18"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="backbtn"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                color="#fffff"
+                fill="none"
+              >
+                <path
+                  d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </div>
+          <div class="buttons">
+            <button class="signupbtn">Sign Up</button>
+            <button class="loginbtn">Log in</button>
+          </div>
+        </div>
+        <div class="spotifyPlaylist">
+          <h1>Audify-Playlist</h1>
+          <div class="card-Container">
+            <!-- <div data-folder="Weekend" class="card ">
+                <div class="play">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50" color="#000000" fill="none">
+                        <circle cx="12" cy="12" r="10" stroke="black" stroke-width="0" fill="#1fdf64" />
+                        <path d="M9.5 11.1998V12.8002C9.5 14.3195 9.5 15.0791 9.95576 15.3862C10.4115 15.6932 11.0348 15.3535 12.2815 14.6741L13.7497 13.8738C15.2499 13.0562 16 12.6474 16 12C16 11.3526 15.2499 10.9438 13.7497 10.1262L12.2815 9.32594C11.0348 8.6465 10.4115 8.30678 9.95576 8.61382C9.5 8.92086 9.5 9.6805 9.5 11.1998Z" fill="black" />
+                    </svg>
+                    
+                </div>
+                <img src="https://i.scdn.co/image/ab67616d0000b2738863bc11d2aa12b54f5aeb36" alt="">
+                <h2> The Weekend</h2>
+                <p>Girl, call out my name, and I'll be on my way</p>
+
+            </div>
+          
+            <div data-folder="Rockstar" class="card ">
+                <div class="play">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50" color="#000000" fill="none">
+                        <circle cx="12" cy="12" r="10" stroke="black" stroke-width="0" fill="#1fdf64" />
+                        <path d="M9.5 11.1998V12.8002C9.5 14.3195 9.5 15.0791 9.95576 15.3862C10.4115 15.6932 11.0348 15.3535 12.2815 14.6741L13.7497 13.8738C15.2499 13.0562 16 12.6474 16 12C16 11.3526 15.2499 10.9438 13.7497 10.1262L12.2815 9.32594C11.0348 8.6465 10.4115 8.30678 9.95576 8.61382C9.5 8.92086 9.5 9.6805 9.5 11.1998Z" fill="black" />
+                    </svg>
+                    
+                </div>
+                <img src="https://i.scdn.co/image/ab67616d0000b27354e544672baa16145d67612b" alt="">
+                <h2>Rockstar</h2>
+                <p>Girl, call out my name, and I'll be on my way</p>
+
+            </div>
+
+            <div data-folder="akon" class="card ">
+                <div class="play">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50" color="#000000" fill="none">
+                        <circle cx="12" cy="12" r="10" stroke="black" stroke-width="0" fill="#1fdf64" />
+                        <path d="M9.5 11.1998V12.8002C9.5 14.3195 9.5 15.0791 9.95576 15.3862C10.4115 15.6932 11.0348 15.3535 12.2815 14.6741L13.7497 13.8738C15.2499 13.0562 16 12.6474 16 12C16 11.3526 15.2499 10.9438 13.7497 10.1262L12.2815 9.32594C11.0348 8.6465 10.4115 8.30678 9.95576 8.61382C9.5 8.92086 9.5 9.6805 9.5 11.1998Z" fill="black" />
+                    </svg>
+                    
+                </div>
+                <img src="https://i.scdn.co/image/ab67616d0000b2736ec7ab30397ea37295340a41" alt="">
+                <h2>Akon</h2>
+                <p>Girl, call out my name, and I'll be on my way</p>
+
+            </div> -->
+          </div>
+        </div>
+        <div class="playbar">
+          <div class="seekbar">
+            <div class="circle"></div>
+          </div>
+
+          <div class="abovebar">
+            <div class="songinfo"></div>
+            <div class="songbuttons">
+              <img
+                id="previous"
+                src="allsvg/prevsong.svg"
+                style="width: 15px"
+                alt=""
+              />
+              <img id="play" src="allsvg/play.svg" alt="" />
+              <img
+                id="next"
+                src="allsvg/nextsong.svg"
+                style="width: 15px"
+                alt=""
+              />
+              <!-- <img id="pause" src="pause.svg"  style="width: 23px;"> -->
+            </div>
+
+            <div class="timevol">
+              <div id="timesong" class="songtime"></div>
+              <div class="volume">
+                <img src="allsvg/volume.svg" alt="" />
+                <!-- <img src="mute.svg" alt=""> -->
+                <div class="range invert-two ">
+                  <input type="range" class="input" name="volume" id="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <script src="js.js"></script>
+  </body>
+</html>

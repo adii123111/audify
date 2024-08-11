@@ -1,0 +1,81 @@
+.left {
+  background-color: black;
+  position: absolute;
+  left: -120%;
+  transition: all 1.1s;
+  z-index: 1;
+  width: 360px;
+}
+.right {
+  width: 100vw;
+  /* margin: 0; */
+  margin-left: 16px;
+}
+
+.hamburger {
+  display: block;
+}
+.hamburgercontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+}
+.close img {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 35px;
+}
+.playbar {
+  width: calc(-55px + 100vw);
+  font-size: smaller;
+  bottom: 0px;
+  left: 17px;
+  height: 130px;
+}
+.seekbar {
+  width: calc(100vw - 100px);
+}
+.card-Container {
+  /* margin: 0; */
+  justify-content: center;
+  height: 50vh;
+}
+
+.abovebar {
+  flex-direction: column;
+  gap: 11px;
+  align-items: center;
+  padding-bottom: 15px;
+  text-align: center;
+}
+.close {
+  display: block;
+}
+.backbtn {
+  display: none;
+}
+.footer {
+  padding-bottom: 6px;
+}
+.songinfo {
+  width: 100%;
+}
+.timevol {
+  display: flex;
+  flex-direction: column;
+
+  gap: 15px;
+}
+.card {
+  width: 30vw;
+}
+@media only screen and (max-width: 600px) {
+  .card {
+    width: 210px;
+  }
+  .card-Container {
+    height: 52vh;
+  }
+}
