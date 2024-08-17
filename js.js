@@ -1,6 +1,6 @@
-let currentsong = new Audio();
-let song = []; // Initialize song as an empty array to avoid undefined error
-let currfolder;
+let currentSong = new Audio();
+let song; // Initialize song as an empty array to avoid undefined error
+let currFolder;
 
 function secondsToMinutesSeconds(seconds) {
   if (isNaN(seconds) || seconds < 0) {
@@ -17,7 +17,7 @@ function secondsToMinutesSeconds(seconds) {
 }
 
 async function getsongs(folder) {
-  currfolder = folder;
+  currFolder = folder;
   let a = await fetch(`${folder}/`);
   let response = await a.text();
   let div = document.createElement("div");
@@ -54,18 +54,17 @@ async function getsongs(folder) {
     document.querySelector(".songlist").getElementsByTagName("li")
   ).forEach((e) => {
     e.addEventListener("click", (element) => {
-    //   console.log(e.querySelector(".info").firstElementChild.innerHTML);
       playMusic(e.querySelector(".info").firstElementChild.innerHTML.trim());
     });
   });
 
-  return songs; // Return the songs array to be assigned to the global song variable
+  return songs;
 }
 
 const playMusic = (track, pause = false) => {
-  currentsong.src = `/${currfolder}/` + track; // $folder
+  currentSong.src = `/${currFolder}/` + track; // $folder
   if (!pause) {
-    currentsong.play();
+    currentSong.play();
     play.src = "allsvg/pause.svg";
   }
 
@@ -74,7 +73,7 @@ const playMusic = (track, pause = false) => {
 };
 
 async function displayAlbums() {
-//   console.log("displaying albums");
+  //   console.log("displaying albums");
   let a = await fetch(`/songs/`);
   let response = await a.text();
   let div = document.createElement("div");
@@ -85,16 +84,14 @@ async function displayAlbums() {
   for (let index = 0; index < array.length; index++) {
     const e = array[index];
 
-    if (e.href.includes("/songs/")) {
+    if (e.href.includes("/songs/") && !e.href.includes(".htaccess")) {
       let folder = e.href.split("/").slice(-1)[0];
       // metadata for the folder
-      let metadata = await fetch(`/songs/${folder}/info.json`);
-      if (!metadata.ok) {
-        // console.error(`Failed to fetch metadata for folder: ${folder}`);
-        continue;
-      }
-      let response = await metadata.json();
-      cardContainer.innerHTML += `<div data-folder="${folder}" class="card">
+      let a = await fetch(`/songs/${folder}/info.json`);
+      let response = await a.json();
+      cardContainer.innerHTML =
+        cardContainer.innerHTML +
+        `<div data-folder="${folder}" class="card">
                 <div class="play">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50" color="#000000" fill="none">
                         <circle cx="12" cy="12" r="10" stroke="black" stroke-width="0" fill="#c8c8c8" />
@@ -118,35 +115,35 @@ async function displayAlbums() {
 
 async function main() {
   song = await getsongs("songs/akon"); // Assign the returned value to the global song variable
-//   console.log(song);
+  //   console.log(song);
   playMusic(song[0], true);
 
   // Display all the albums on the page
   await displayAlbums();
 
   play.addEventListener("click", () => {
-    if (currentsong.paused) {
-      currentsong.play();
+    if (currentSong.paused) {
+      currentSong.play();
       play.src = "allsvg/pause.svg";
     } else {
-      currentsong.pause();
+      currentSong.pause();
       play.src = "allsvg/play.svg";
     }
   });
 
   // Time update
-  currentsong.addEventListener("timeupdate", () => {
+  currentSong.addEventListener("timeupdate", () => {
     document.querySelector(".songtime").innerHTML = `${secondsToMinutesSeconds(
-      currentsong.currentTime
-    )} / ${secondsToMinutesSeconds(currentsong.duration)}`;
+      currentSong.currentTime
+    )} / ${secondsToMinutesSeconds(currentSong.duration)}`;
     document.querySelector(".circle").style.left =
-      (currentsong.currentTime / currentsong.duration) * 100 + "%";
+      (currentSong.currentTime / currentSong.duration) * 100 + "%";
   });
 
   document.querySelector(".seekbar").addEventListener("click", (e) => {
     let percent = (e.offsetX / e.target.getBoundingClientRect().width) * 100;
     document.querySelector(".circle").style.left = percent + "%";
-    currentsong.currentTime = (currentsong.duration * percent) / 100;
+    currentSong.currentTime = (currentSong.duration * percent) / 100;
   });
 
   document.querySelector(".hamburger").addEventListener("click", () => {
@@ -158,18 +155,18 @@ async function main() {
   });
 
   previous.addEventListener("click", () => {
-    currentsong.pause();
+    currentSong.pause();
     console.log("Previous clicked");
-    let index = song.indexOf(currentsong.src.split("/").slice(-1)[0]);
+    let index = song.indexOf(currentSong.src.split("/").slice(-1)[0]);
     if (index - 1 >= 0) {
       playMusic(song[index - 1]);
     }
   });
 
   next.addEventListener("click", () => {
-    currentsong.pause();
+    currentSong.pause();
     console.log("Next clicked");
-    let index = song.indexOf(currentsong.src.split("/").slice(-1)[0]);
+    let index = song.indexOf(currentSong.src.split("/").slice(-1)[0]);
     if (index + 1 < song.length) {
       playMusic(song[index + 1]);
     }
@@ -180,8 +177,8 @@ async function main() {
     .getElementsByTagName("input")[0]
     .addEventListener("change", (e) => {
       console.log("Setting volume to", e.target.value, "/ 100");
-      currentsong.volume = parseInt(e.target.value) / 100;
-      if (currentsong.volume > 0) {
+      currentSong.volume = parseInt(e.target.value) / 100;
+      if (currentSong.volume > 0) {
         document.querySelector(".volume>img").src = document
           .querySelector(".volume>img")
           .src.replace("mute.svg", "volume.svg");
@@ -195,7 +192,7 @@ async function main() {
         "allsvg/volume.svg",
         "allsvg/mute.svg"
       );
-      currentsong.volume = 0;
+      currentSong.volume = 0;
       document
         .querySelector(".range")
         .getElementsByTagName("input")[0].value = 0;
@@ -204,7 +201,7 @@ async function main() {
         "allsvg/mute.svg",
         "allsvg/volume.svg"
       );
-      currentsong.volume = 0.1;
+      currentSong.volume = 0.1;
       document
         .querySelector(".range")
         .getElementsByTagName("input")[0].value = 10;
